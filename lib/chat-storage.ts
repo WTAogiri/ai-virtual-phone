@@ -1963,7 +1963,7 @@ export function replaceResponseBatchWithParts(
         editableResponseText: firstMessage.editableResponseText,
         // 云消息身份必须跟着走：丢了它，微信云同步下一轮会把原文当成「还没导入过」
         // 再导一遍，编辑后的版本和原文并存（编辑一次多一条）。
-        cloudSync: firstMessage.cloudSync,
+        // cloudSync: firstMessage.cloudSync, // 修复微信云端回复错位：不能把入站标记拷给AI出站回复
         statusPanel: index === (options?.metaPartIndex ?? 0) ? options?.statusPanel : undefined,
         statusRegionMode: index === (options?.metaPartIndex ?? 0) && options?.statusPanel ? options?.statusRegionMode : undefined,
         innerMonologue: index === (options?.metaPartIndex ?? 0) ? options?.innerMonologue : undefined,
